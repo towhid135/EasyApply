@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    Edit Job Details
+{% endblock %}
+
+
+{% block content %}
+    <div class="col-lg-6 offset-3">
+        <div class="box">
+            <h3 class="heading">Edit Job Details</h3>
+            <!-- start of first if -->
+
+            {% if form.errors %}
+                {% for field in form %}
+                    {% for error in field.errors %}
+                        <div class="alert alert-danger alert-dismissable">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>{{ error|escape }}</strong>
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+
+                {% for error in form.non_field_errors %}
+                    <div class="alert alert-danger alert-dismissable">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong>{{ error|escape }}</strong>
+                    </div>
+                {% endfor %}
+            {% endif %}
+            <!-- start of first if -->
+
+            <form action="" method="post">
+                {% csrf_token %}
+               <!-- {% for field in form %} -->
+
+                        <!-- start of all input fields -->
+                      {% if field.name == 'last_date' %}
+                     <div class="row">
+                            <div class="col-xl-6 form-group">
+                                <label for="validity">Validity of the post</label>
+                                <input id="validity" name="last_date" type="date" class="form-control" value="{{ form.last_date.value }}">
+                            </div>
+                        </div>
+                      {% else %}
+
+
+                     <div class="form-group">
+                            <label for="id_{{ field.name }}">{{ field.label }}</label>
+                            <input type="{{ field.field.widget.input_type }}"
+                                   class="form-control"
+                                   name="{{ field.name }}"
+                                   id="id_{{ field.name }}"
+                                   value="{{ field.value }}"
+                                   placeholder="{{ field.field.widget.attrs.placeholder }}">
+                        </div>
+                        {% endif %}
+
+                      <!-- end of all input fields -->
+
+                <!-- <div class="row">
+
+                            <div class="col-lg-12 form-group">
+                                <label for="title">Job Title</label>
+                                <input id="title" name="title" type="text" class="form-control" value="{{ form.title.value }}">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 form-group">
+                                <label for="text">Job Description</label>
+                                <textarea id="text" name="description" rows="5" class="form-control">{{ form.description.value }}</textarea>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xl-6 form-group">
+                                <label for="validity">Validity of the post</label>
+                                <input id="validity" name="last_date" type="date" class="form-control" value="{{ form.last_date.value }}">
+                            </div>
+                        </div> -->
+
+
+               <!-- {% endfor %} -->
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-outline-white-primary">
+                        <i class="fa fa-signing"></i> Update
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

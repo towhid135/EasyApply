@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<title>CV</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+</style>
+<head>
+   <style>
+    a { color: teal;}
+</style>
+</head>
+<body class="w3-light-grey">
+<!-- Page Container -->
+<div class="w3-content w3-margin-top" style="max-width:2500px;">
+  <!-- The Grid -->
+  <div class="w3-row-padding">
+    <div class="w3-content">
+      <div class="w3-container w3-card w3-teal w3-margin-bottom">
+    	<div class="w3-white w3-text-black w3-card-4">
+            <div class="w3-display-container">
+          {% for i in cv %}
+            {% if i.img %}
+              <img src="{{ i.img.url }}"  style="width:140px;">
+            {% else %}
+              <span class="text-muted">No Image</span>
+            {% endif %}
+            {% endfor %}
+                <br><br><br><br>
+            <div class="w3-display-bottomleft w3-container w3-text-gray">
+            <h3>
+                {% for i in cv %}
+                {{ i.fname }}
+                {{ i.lname }}
+                {% endfor %}
+            </h3>
+          </div>
+        </div>
+
+          <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>
+              Designation:
+            {% for i in cv %}
+                {{ i.designation }}
+                {% endfor %}
+            </p>
+          <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>
+              Address:
+            {% for i in cv %}
+                {{ i.address }}
+                {% endfor %}
+            </p>
+          <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>
+              E-mail:
+              {% for i in cv %}
+                {{ i.email }}
+                {% endfor %}
+          </p>
+          <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>
+              Contact Number:
+              {% for i in cv %}
+                {{ i.phone }}
+                {% endfor %}
+          </p>
+
+            <p><i class="fa fa-calendar fa-fw w3-margin-right w3-large w3-text-teal"></i>
+                Date of Birth:
+            {% for i in cv %}
+                {{ i.dob }}
+                {% endfor %}
+            </p>
+
+          <hr>
+        <p><b>Career Objectives: </b>
+                {% for i in cv %}
+                {{ i.obj }}
+                {% endfor %}
+          </p>
+        <div class="w3-container">
+            <h5 class="w3-text-black w3-padding-15"><i class="fa fa-certificate fa-fw w3-margin-right w3-large w3-text-teal"></i><u><b>Educational Qualification</b></u></h5>
+            <p>
+                {% for i in edu %}
+                {% if i.institute1 is not None %}
+                <b>Primary School Certificate (PSC) :</b>
+                &nbsp &nbsp
+                Institution Name - {{ i.institute1 }} &nbsp
+                Board - {{ i.board1 }} &nbsp
+                Passed Year - {{ i.attempted1 }} &nbsp
+                GPA - {{ i.gpa1 }} &nbsp
+                {% else %}
+	            <p> </p>
+                {% endif %}
+            {% endfor %}
+            </p>
+
+            <p>
+                {% for i in edu %}
+                {% if i.institute2 is not None %}
+                <b>Junior School Certificate (JSC) :</b>
+                &nbsp &nbsp
+                Institution Name - {{ i.institute2 }} &nbsp
+                Board - {{ i.board2 }} &nbsp
+                Passed Year - {{ i.attempted2 }} &nbsp
+                GPA - {{ i.gpa2 }} &nbsp
+                {% else %}
+	            <p> </p>
+                {% endif %}
+            {% endfor %}
+            </p>
+
+            <p>
+                {% for i in edu %}
+                {% if i.institute3 is not None %}
+                <b>Secondary School Certificate (SSC) :</b>
+                &nbsp &nbsp
+                Institution Name - {{ i.institute3 }} &nbsp
+                Board - {{ i.board3 }} &nbsp
+                Passed Year - {{ i.attempted3 }} &nbsp
+                GPA - {{ i.gpa3 }} &nbsp
+                {% else %}
+	            <p> </p>
+                {% endif %}
+            {% endfor %}
+            </p>
+
+             <p>
+                {% for i in edu %}
+                {% if i.institute4 is not None %}
+                <b> Higher Secondary Certificate  (HSC) :</b>
+                &nbsp &nbsp
+                Institution Name - {{ i.institute4 }} &nbsp
+                Board - {{ i.board4 }} &nbsp
+                Passed Year - {{ i.attempted4 }} &nbsp
+                GPA - {{ i.gpa4 }} &nbsp
+                {% else %}
+	            <p> </p>
+                {% endif %}
+            {% endfor %}
+            </p>
+
+            <p>
+                {% for i in edu %}
+                {% if i.institute5 is not None %}
+                <b> Honours :</b>
+                &nbsp &nbsp
+                University - {{ i.institute5 }} &nbsp
+                Department - {{ i.department5 }} &nbsp
+                Passed Year - {{ i.passing5 }} &nbsp
+                CGPA - {{ i.cgpa5 }} &nbsp
+                {% else %}
+	            <p> </p>
+                {% endif %}
+            {% endfor %}
+            </p>
+
+            <p>
+                {% for i in edu %}
+                {% if i.institute6 is not None %}
+                <b> Masters :</b>
+                &nbsp &nbsp
+                University - {{ i.institute6 }} &nbsp
+                Department - {{ i.department6 }} &nbsp
+                Passed Year - {{ i.passing6 }} &nbsp
+                CGPA - {{ i.cgpa6 }} &nbsp
+                {% else %}
+	            <p> </p>
+                {% endif %}
+            {% endfor %}
+            </p>
+
+            <p>
+                {% for i in edu %}
+                {% if i.institute7 is not None %}
+                <b> PHD :</b>
+                &nbsp &nbsp
+                University - {{ i.institute7 }} &nbsp
+                Department - {{ i.department7 }} &nbsp
+                Passed Year - {{ i.passing7 }} &nbsp
+                CGPA - {{ i.cgpa7 }} &nbsp
+                {% else %}
+	            <p> </p>
+                {% endif %}
+            {% endfor %}
+            </p>
+
+          <hr>
+        </div>
+
+
+        <div class="w3-container">
+            <h5 class="w3-text-black w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-large w3-text-teal"></i><u><b>Honours and Awards</b></u></h5>
+
+          <!-- <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>
+              Year</h6> -->
+          <p>{% for i in cv %}
+                {{ i.awards }}
+                {% endfor %}</p>
+          <hr>
+        </div>
+            <div class="w3-container">
+
+            <h5 class="w3-text-black w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-large w3-text-teal">
+            </i><u><b>Work Experience</b></u></h5>
+                <div class="w3-container">
+              {% for i in cv %}
+                {{ i.work }}
+                {% endfor %} </h5>
+          <hr>
+        </div>
+      </div>
+            <div class="w3-container">
+            <h5 class="w3-text-black w3-padding-16"><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i><u><b>Skills</b></u></b></p></h5>
+
+            <div class="w3-light-white w3-round-xlarge" > <p> <b>Soft Skill:</b>
+                {% for i in cv %}
+                {{ i.s_skill }}
+                {% endfor %} </p></div>
+
+           <div class="w3-light-white w3-round-xlarge" > <p><b> Technical Skill:</b>
+                {% for i in cv %}
+                {{ i.t_skill }}
+                {% endfor %} </p></div>
+
+         <div class="w3-light-white w3-round-xlarge" > <p><b> Language Skill:</b>
+
+                {% for i in cv %}
+                {{ i.l_skill }}
+                {% endfor %}</p>
+          </div>
+
+            </div>
+                  <div class="w3-container">
+            <h5 class="w3-text-black w3-padding-16"><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i><u><b>Interest And Hobbies:</b> </u></b></p></h5>
+            <p>
+                {% for i in cv %}
+                {{ i.interest }}
+                {% endfor %} </p></div>
+
+
+            <div class="w3-container">
+            <h5 class="w3-text-black w3-padding-16"><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i><u><b>Publications: </b></u></b></p></h5>
+            <p>
+                {% for i in cv %}
+                {{ i.publication }}
+                {% endfor %} </p></div>
+
+
+           <!-- <div class="w3-container">
+             <p> <u><h5><b>Signature</b></h5></u> </p>
+            <div class="w3-display-container">
+          {% for i in cv %}
+            {% if i.signature %}
+              <img src="http://localhost:8080{{ i.signature.url }}" style="width:100px;">
+            {% else %}
+              <span class="text-muted">No Image</span>
+            {% endif %}
+                {% endfor %}</div>
+                <br><br><br><br>
+          </div>
+
+          <br>  -->
+            <div class="w3-display-container"><p> <u><h5><b>Signature</b></h5></u> </p>
+          {% for i in cv %}
+            {% if i.signature %}
+              <img src="{{ i.signature.url }}"  style="width:140px;">
+            {% else %}
+              <span class="text-muted">No Image</span>
+            {% endif %}
+            {% endfor %}
+                <br><br><br><br>
+
+        </div>
+          <br>
+
+    <!-- End Right Column -->
+    </div>
+  <!-- End Grid -->
+  </div>
+
+  <!-- End Page Container -->
+</div>
+
+<footer class="w3-container w3-teal w3-center w3-margin-top">
+  <i class="fa fa-facebook-official w3-hover-opacity"></i>
+  <i class="fa fa-instagram w3-hover-opacity"></i>
+  <i class="fa fa-snapchat w3-hover-opacity"></i>
+  <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+  <i class="fa fa-twitter w3-hover-opacity"></i>
+  <i class="fa fa-linkedin w3-hover-opacity"></i>
+</footer>
+</div>
+</body>
+<script>
+
+</script>
+</html>

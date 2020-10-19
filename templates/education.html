@@ -1,0 +1,376 @@
+<html>
+
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<title>Education</title><title>Education</title>
+
+
+    <style>
+                /*custom font*/
+        @import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+        /*basic reset*/
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            height: 100%;
+            background: #6441A5; /* fallback for old browsers */
+            background: -webkit-linear-gradient(to left, #6441A5, #2a0845); /* Chrome 10-25, Safari 5.1-6 */
+        }
+
+        body {
+            font-family: montserrat, arial, verdana;
+            background: transparent;
+        }
+
+        /*form styles*/
+        #msform {
+            text-align: center;
+            position: relative;
+            margin-top: 30px;
+        }
+
+        #msform fieldset {
+            background: white;
+            border: 0 none;
+            border-radius: 0px;
+            box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+            padding: 20px 30px;
+            box-sizing: border-box;
+            width: 80%;
+            margin: 0 10%;
+
+            /*stacking fieldsets above each other*/
+            position: relative;
+        }
+
+        /*Hide all except first fieldset*/
+        #msform fieldset:not(:first-of-type) {
+            display: none;
+        }
+
+        /*inputs*/
+        #msform input, #msform textarea {
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 0px;
+            margin-bottom: 10px;
+            width: 100%;
+            box-sizing: border-box;
+            font-family: montserrat;
+            color: #2C3E50;
+            font-size: 13px;
+        }
+
+        #msform input:focus, #msform textarea:focus {
+            -moz-box-shadow: none !important;
+            -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+            border: 1px solid #ee0979;
+            outline-width: 0;
+            transition: All 0.5s ease-in;
+            -webkit-transition: All 0.5s ease-in;
+            -moz-transition: All 0.5s ease-in;
+            -o-transition: All 0.5s ease-in;
+        }
+
+        /*buttons*/
+        #msform .action-button {
+            width: 100px;
+            background: #ee0979;
+            font-weight: bold;
+            color: white;
+            border: 0 none;
+            border-radius: 25px;
+            cursor: pointer;
+            padding: 10px 5px;
+            margin: 10px 5px;
+        }
+
+        #msform .action-button:hover, #msform .action-button:focus {
+            box-shadow: 0 0 0 2px white, 0 0 0 3px #ee0979;
+        }
+
+        #msform .action-button-previous {
+            width: 100px;
+            background: #C5C5F1;
+            font-weight: bold;
+            color: white;
+            border: 0 none;
+            border-radius: 25px;
+            cursor: pointer;
+            padding: 10px 5px;
+            margin: 10px 5px;
+        }
+
+        #msform .action-button-previous:hover, #msform .action-button-previous:focus {
+            box-shadow: 0 0 0 2px white, 0 0 0 3px #C5C5F1;
+        }
+
+        /*headings*/
+        .fs-title {
+            font-size: 18px;
+            text-transform: uppercase;
+            color: #2C3E50;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            font-weight: bold;
+        }
+
+		.fs-title1 {
+            font-size: 14px;
+            text-transform: uppercase;
+            color: #2C3E50;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            font-weight: bold;
+        }
+
+        .fs-subtitle {
+            font-weight: normal;
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        /*progressbar*/
+        #progressbar {
+            margin-bottom: 30px;
+            overflow: hidden;
+            /*CSS counters to number the steps*/
+            counter-reset: step;
+        }
+
+        #progressbar li {
+            list-style-type: none;
+            color: white;
+            text-transform: uppercase;
+            font-size: 9px;
+            width: 16.5%;
+            float: left;
+            position: relative;
+            letter-spacing: 1px;
+        }
+
+        #progressbar li:before {
+            content: counter(step);
+            counter-increment: step;
+            width: 24px;
+            height: 24px;
+            line-height: 26px;
+            display: block;
+            font-size: 12px;
+            color: #333;
+            background: white;
+            border-radius: 25px;
+            margin: 0 auto 10px auto;
+        }
+
+        /*progressbar connectors*/
+        #progressbar li:after {
+            content: '';
+            width: 100%;
+            height: 2px;
+            background: white;
+            position: absolute;
+            left: -50%;
+            top: 9px;
+            z-index: -1; /*put it behind the numbers*/
+        }
+
+        #progressbar li:first-child:after {
+            /*connector not needed before the first step*/
+            content: none;
+        }
+
+        /*marking active/completed steps green*/
+        /*The number of the step and the connector before it = green*/
+        #progressbar li.active:before, #progressbar li.active:after {
+            background: #ee0979;
+            color: white;
+        }
+
+
+        /* Not relevant to this form */
+        .dme_link {
+            margin-top: 30px;
+            text-align: center;
+        }
+        .dme_link a {
+            background: #FFF;
+            font-weight: bold;
+            color: #ee0979;
+            border: 0 none;
+            border-radius: 25px;
+            cursor: pointer;
+            padding: 5px 25px;
+            font-size: 12px;
+        }
+
+        .dme_link a:hover, .dme_link a:focus {
+            background: #C5C5F1;
+            text-decoration: none;
+        }
+		div.b {
+			  text-align: left;
+			}
+    </style>
+
+
+</head>
+
+<body>
+
+<div class="row">
+    <div class="col-md-12 text-center">
+        <h2 style="color:#fff;border:1px solid white;padding:10px;margin:15px;">Educational Qualification</h2>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+<form id="msform" action="{% url 'jobs:edu_save' %}"  method="post" >
+            {% csrf_token %}
+                     <fieldset>
+                                 <div id="first_form"  style="display:none;" >
+
+                                            <label >PSC</label> </br> </br>
+                                            <label>Institute: </label> </br>
+                                            <input type="text" name="institute1" placeholder="Enter Your Institute Name" value="{{ form.institute1 }}" > </br>
+                                            <label>Board: </label> </br>
+                                            <input type="text" name="board1" placeholder="Enter Your Board Name" value="{{ form.board1 }}" > </br>
+                                            <label>Attempted Year: </label></br>
+                                            <input type="text" name="attempted1" placeholder="Enter Your Attempted Year" value="{{ form.attempted1 }}" > </br>
+                                            <label>G.P.A: </label> </br>
+                                            <input type="text" name="gpa1" placeholder="Enter Your G.P.A" value="{{ form.gpa1 }}" > </br>
+
+                                 </div> </br>
+
+                         <a href="#" class="btn btn-outline-success" style="display:;"  id="psc1" onclick="ShowField(0)" >+ADD</a>
+
+
+                                 <div id="second_form"  style="display:none;">
+                                            <label >JSC</label> </br> </br>
+                                            <label>Institute: </label> </br>
+                                            <input type="text" name="institute2" placeholder="Enter Your Institute Name" value="{{ form.institute2 }}" > </br>
+                                            <label>Board: </label> </br>
+                                            <input type="text" name="board2" placeholder="Enter Your Board Name" value="{{ form.board2 }}" > </br>
+                                            <label>Attempted Year: </label></br>
+                                            <input type="text" name="attempted2" placeholder="Enter Your Attempted Year" value="{{ form.attempted2 }}" > </br>
+                                            <label>G.P.A: </label> </br>
+                                            <input type="text" name="gpa2" placeholder="Enter Your G.P.A" value="{{ form.gpa2 }}" > </br>
+
+                                 </div> </br>
+                                            <a href="#" class="btn btn-outline-success" style="display:none;" id="jsc1" onclick="ShowField(1)">+ADD</a>
+
+                                             <div id="third_form"  style="display:none;">
+                                            <label >SSC</label> </br> </br>
+                                            <label>Institute: </label> </br>
+                                            <input type="text" name="institute3" placeholder="Enter Your Institute Name" value="{{ form.institute3 }}" > </br>
+                                            <label>Board: </label> </br>
+                                            <input type="text" name="board3" placeholder="Enter Your Board Name" value="{{ form.board3 }}" > </br>
+                                            <label>Attempted Year: </label></br>
+                                            <input type="text" name="attempted3" placeholder="Enter Your Attempted Year" value="{{ form.attempted3 }}" > </br>
+                                            <label>G.P.A: </label> </br>
+                                            <input type="text" name="gpa3" placeholder="Enter Your G.P.A" value="{{ form.gpa3 }}" > </br>
+
+                                  </div> </br>
+                                            <a href="#" class="btn btn-outline-success" style="display:none;" id="ssc1" onclick="ShowField(2)">+ADD</a>
+
+                          <div id="fourth_form"  style="display:none;">
+                                            <label >HSC</label> </br> </br>
+                                            <label>Institute: </label> </br>
+                                            <input type="text" name="institute4" placeholder="Enter Your Institute Name" value="{{ form.institute4 }}" > </br>
+                                            <label>Board: </label> </br>
+                                            <input type="text" name="board4" placeholder="Enter Your Board Name" value="{{ form.board4 }}" > </br>
+                                            <label>Attempted Year: </label></br>
+                                            <input type="text" name="attempted4" placeholder="Enter Your Attempted Year" value="{{ form.attempted4 }}" > </br>
+                                            <label>G.P.A: </label> </br>
+                                            <input type="text" name="gpa4" placeholder="Enter Your G.P.A" value="{{ form.gpa4 }}" > </br>
+
+                          </div> </br>
+                                            <a href="#" class="btn btn-outline-success" style="display:none;" id="hsc1" onclick="ShowField(3)">+ADD</a>
+
+
+                           <div id="fifth_form"  style="display:none;">
+                                            <label >HONORS</label> </br> </br>
+                                            <label>Institute: </label> </br>
+                                            <input type="text" name="institute5" placeholder="Enter Your Institute Name" value="{{ form.institute5 }}" > </br>
+                                            <label>Department: </label> </br>
+                                            <input type="text" name="department5" placeholder="Enter Your Department Name" value="{{ form.department5 }}" > </br>
+                                            <label>Passing Year: </label> </br>
+                                            <input type="text" name="passing5" placeholder="Enter Your Passing Year" value="{{ form.passing5 }}" > </br>
+                                            <label>C.G.P.A: </label> </br>
+                                            <input type="text" name="cgpa5" placeholder="Enter Your C.G.P.A" value="{{ form.cgpa5 }}" > </br>
+
+                           </div> </br>
+                                            <a href="#" class="btn btn-outline-success" style="display:none;" id="honors1" onclick="ShowField(4)">+ADD</a>
+
+                          <div id="sixth_form"  style="display:none;">
+                                            <label >Masters</label> </br> </br>
+                                            <label>Institute: </label> </br>
+                                            <input type="text" name="institute6" placeholder="Enter Your Institute Name" value="{{ form.institute6 }}" > </br>
+                                            <label>Department: </label> </br>
+                                            <input type="text" name="department6" placeholder="Enter Your Department Name" value="{{ form.department6 }}" > </br>
+                                            <label>Passing Year: </label> </br>
+                                            <input type="text" name="passing6" placeholder="Enter Your Passing Year" value="{{ form.passing6 }}" > </br>
+                                            <label>C.G.P.A: </label> </br>
+                                            <input type="text" name="cgpa6" placeholder="Enter Your C.G.P.A" value="{{ form.cgpa6 }}" > </br>
+
+                          </div> </br>
+                                            <a href="#" class="btn btn-outline-success" style="display:none;" id="masters1" onclick="ShowField(5)">+ADD</a>
+
+
+
+
+
+                                            <div id="seventh_form" class="form-group"  style="display:none;">
+                                            <label >PhD</label> </br> </br>
+                                            <label>Institute: </label> </br>
+                                            <input type="text" name="institute7" placeholder="Enter Your Institute Name"  value="{{ form.institute7 }}" > </br>
+                                            <label>Department: </label> </br>
+                                            <input type="text" name="department7" placeholder="Enter Your Department Name"  value="{{ form.department7 }}" > </br>
+                                            <label>Passing Year: </label> </br>
+                                            <input type="text" name="passing7" placeholder="Enter Your Passing Year" value="{{ form.passing7 }}" > </br>
+                                            <label>C.G.P.A: </label> </br>
+                                            <input type="text" name="cgpa7" placeholder="Enter Your C.G.P.A" value="{{ form.cgpa7 }}" > </br>
+
+                                            </div> </br>
+                <a href="#" class="btn btn-outline-success" style="display:none;" id="phd1" onclick="ShowField(6)">+ADD</a> </br>
+
+
+                         <input type="submit" name="submit" class="submit action-button" value="Submit"/>
+                         </fieldset>
+</form>
+    </div>
+</div>
+
+</body>
+
+<script>
+
+    //Starting for the Education
+    divID = ['#first_form','#second_form','#third_form','#fourth_form','#fifth_form','#sixth_form','#seventh_form'];
+aTagID = ['#psc1','#jsc1','#ssc1','#hsc1','#honors1','#masters1','#phd1'];
+skaTagID = ['#skpsc1','#skjsc1','#skssc1','#skhsc1','#skhonors1','#skmasters1','#skphd1'];
+function ShowField(value){
+  $(divID[value]).show();
+  $(aTagID[value]).hide();
+  if(value< (divID.length-1) ) $(aTagID[value+1]).show();
+}
+
+// End of the Education
+
+</script>
+
+
+</html>
